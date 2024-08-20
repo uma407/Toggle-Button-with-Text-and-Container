@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Button with Text and Container</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        button {
+            padding: 15px 30px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <p id="text">This is a simple paragraph that will change when you click the button below. The color of this container and the button text will also change.</p>
+        <button id="toggle-btn">Click Me</button>
+    </div>
+
+    <script>
+        document.getElementById("toggle-btn").addEventListener("click", function() {
+            var container = document.getElementById("container");
+            var text = document.getElementById("text");
+            var button = document.getElementById("toggle-btn");
+
+            if (button.textContent === "Click Me") {
+                container.style.backgroundColor = "#ffb6c1"; // Change to a different color
+                text.textContent = "The content has changed! The color of the container and the button text have been updated as well. Click the button again to revert.";
+                button.textContent = "Click to Revert";
+                button.style.backgroundColor = "#dc3545"; // Change button color
+            } else {
+                container.style.backgroundColor = "#ffffff"; // Revert to original color
+                text.textContent = "This is a simple paragraph that will change when you click the button below. The color of this container and the button text will also change.";
+                button.textContent = "Click Me";
+                button.style.backgroundColor = "#28a745"; // Revert button color
+            }
+        });
+    </script>
+</body>
+</html>
